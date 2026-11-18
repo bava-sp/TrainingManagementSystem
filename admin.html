@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/" class="logout">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+
+<h1>
+<i class="fa-solid fa-user-shield"></i>
+Admin Dashboard
+</h1>
+
+<p class="subtitle" style="text-align:center;">
+Welcome Administrator! Manage employee training efficiently.
+</p>
+
+<!-- Dashboard Cards -->
+
+<div class="dashboard">
+
+<div class="box">
+<h3><i class="fa-solid fa-book"></i> Syllabus</h3>
+<p>{{ syllabus|length }}</p>
+</div>
+
+<div class="box">
+<h3><i class="fa-solid fa-comments"></i> Queries</h3>
+<p>{{ queries|length }}</p>
+</div>
+
+<div class="box">
+<h3><i class="fa-solid fa-building"></i> Departments</h3>
+<p>3</p>
+</div>
+
+<div class="box">
+<h3><i class="fa-solid fa-user-group"></i> Users</h3>
+<p>2</p>
+</div>
+
+</div>
+
+<!-- Add Syllabus -->
+
+<div class="card">
+
+<h2>
+<i class="fa-solid fa-circle-plus"></i>
+Add New Syllabus
+</h2>
+
+<form action="/add"
+method="post"
+enctype="multipart/form-data">
+
+<select name="department" required>
+
+<option>IT</option>
+<option>HR</option>
+<option>Finance</option>
+
+</select>
+
+<input
+type="text"
+name="title"
+placeholder="Enter Syllabus Title"
+required>
+
+<input
+type="file"
+name="file"
+required>
+
+<button>
+
+<i class="fa-solid fa-upload"></i>
+
+Upload Syllabus
+
+</button>
+
+</form>
+
+</div>
+
+<!-- Syllabus Table -->
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-book-open"></i>
+
+Available Syllabus
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+
+<th>Department</th>
+
+<th>Title</th>
+
+<th>Document</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for s in syllabus %}
+
+<tr>
+
+<td>{{ loop.index }}</td>
+
+<td>{{ s.department }}</td>
+
+<td>{{ s.title }}</td>
+
+<td>
+
+<a href="/uploads/{{ s.file }}"
+target="_blank">
+
+<i class="fa-solid fa-file-pdf"></i>
+
+Open
+
+</a>
+
+</td>
+
+<td>
+
+<a href="/edit/{{ loop.index0 }}">
+
+<i class="fa-solid fa-pen"></i>
+
+Edit
+
+</a>
+
+|
+
+<a href="/delete/{{ loop.index0 }}">
+
+<i class="fa-solid fa-trash"></i>
+
+Delete
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+<!-- Employee Queries -->
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-comments"></i>
+
+Employee Queries
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Employee</th>
+
+<th>Question</th>
+
+<th>Reply</th>
+
+<th>Action</th>
+
+</tr>
+
+{% for q in queries %}
+
+<tr>
+
+<td>{{ q.employee }}</td>
+
+<td>{{ q.question }}</td>
+
+<td>{{ q.reply }}</td>
+
+<td>
+
+<form action="/reply/{{ loop.index0 }}"
+method="post">
+
+<input
+type="text"
+name="reply"
+placeholder="Type Reply">
+
+<button>
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Send
+
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

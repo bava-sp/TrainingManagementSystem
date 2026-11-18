@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Admin Dashboard</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🛠 Admin Dashboard</h1>
+
+<a href="/">Logout</a>
+
+<h2>Add Syllabus</h2>
+
+<form action="/add" method="post">
+
+<select name="department" required>
+
+<option>IT</option>
+<option>HR</option>
+<option>Finance</option>
+
+</select>
+
+<input type="text"
+name="title"
+placeholder="Syllabus Title"
+required>
+
+<input type="text"
+name="folder"
+placeholder="Folder Name"
+required>
+
+<button>Add</button>
+
+</form>
+
+<h2>Syllabus List</h2>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Department</th>
+<th>Title</th>
+<th>Folder</th>
+<th>Action</th>
+</tr>
+
+{% for s in syllabus %}
+
+<tr>
+
+<td>{{ loop.index0 }}</td>
+<td>{{ s.department }}</td>
+<td>{{ s.title }}</td>
+<td>{{ s.folder }}</td>
+
+<td>
+
+<a href="/edit/{{ loop.index0 }}">Edit</a>
+
+<a href="/delete/{{ loop.index0 }}">Delete</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<h2>Employee Queries</h2>
+
+<table>
+
+<tr>
+<th>Employee</th>
+<th>Question</th>
+<th>Reply</th>
+<th>Action</th>
+</tr>
+
+{% for q in queries %}
+
+<tr>
+
+<td>{{ q.employee }}</td>
+<td>{{ q.question }}</td>
+<td>{{ q.reply }}</td>
+
+<td>
+
+<form action="/reply/{{ loop.index0 }}" method="post">
+
+<input type="text"
+name="reply"
+placeholder="Reply Here">
+
+<button>Send</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

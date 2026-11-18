@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employee Dashboard</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="/" class="logout">
+<i class="fa-solid fa-right-from-bracket"></i>
+Logout
+</a>
+
+<h1>
+<i class="fa-solid fa-user"></i>
+Employee Dashboard
+</h1>
+
+<p class="subtitle" style="text-align:center;">
+Welcome to the Employee Training Management Portal
+</p>
+
+<!-- Dashboard Cards -->
+
+<div class="dashboard">
+
+<div class="box">
+
+<h3>
+
+<i class="fa-solid fa-book"></i>
+
+Available Syllabus
+
+</h3>
+
+<p>{{ syllabus|length }}</p>
+
+</div>
+
+<div class="box">
+
+<h3>
+
+<i class="fa-solid fa-comments"></i>
+
+My Queries
+
+</h3>
+
+<p>{{ queries|length }}</p>
+
+</div>
+
+<div class="box">
+
+<h3>
+
+<i class="fa-solid fa-building"></i>
+
+Departments
+
+</h3>
+
+<p>3</p>
+
+</div>
+
+<div class="box">
+
+<h3>
+
+<i class="fa-solid fa-award"></i>
+
+Learning
+
+</h3>
+
+<p>100%</p>
+
+</div>
+
+</div>
+
+<!-- Available Syllabus -->
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-book-open"></i>
+
+Available Training Materials
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Department</th>
+
+<th>Title</th>
+
+<th>Document</th>
+
+</tr>
+
+{% for s in syllabus %}
+
+<tr>
+
+<td>{{ s.department }}</td>
+
+<td>{{ s.title }}</td>
+
+<td>
+
+<a href="/uploads/{{ s.file }}" target="_blank">
+
+<i class="fa-solid fa-file-pdf"></i>
+
+Open File
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+<!-- Send Query -->
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Send Query to Administrator
+
+</h2>
+
+<form action="/query" method="post">
+
+<input
+
+type="text"
+
+name="employee"
+
+placeholder="Enter Employee Name"
+
+required>
+
+<input
+
+type="text"
+
+name="question"
+
+placeholder="Type your question here"
+
+required>
+
+<button>
+
+<i class="fa-solid fa-paper-plane"></i>
+
+Submit Query
+
+</button>
+
+</form>
+
+</div>
+
+<!-- Admin Reply -->
+
+<div class="card">
+
+<h2>
+
+<i class="fa-solid fa-reply"></i>
+
+Replies from Administrator
+
+</h2>
+
+<table>
+
+<tr>
+
+<th>Question</th>
+
+<th>Reply</th>
+
+</tr>
+
+{% for q in queries %}
+
+<tr>
+
+<td>{{ q.question }}</td>
+
+<td>
+
+{% if q.reply %}
+
+<span style="color:green;font-weight:bold;">
+
+<i class="fa-solid fa-circle-check"></i>
+
+{{ q.reply }}
+
+</span>
+
+{% else %}
+
+<span style="color:red;font-weight:bold;">
+
+<i class="fa-solid fa-clock"></i>
+
+Waiting for Reply
+
+</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

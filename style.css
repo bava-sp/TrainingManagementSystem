@@ -1,0 +1,1216 @@
+/*==================================================
+      TRAINING MANAGEMENT SYSTEM
+      PREMIUM STYLE.CSS - PART 1
+===================================================*/
+
+/* Google Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/*==========================
+      RESET
+==========================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#4facfe);
+
+    background-size:400% 400%;
+
+    animation:bgAnimation 15s ease infinite;
+
+    color:#fff;
+
+}
+
+/* Background Animation */
+
+@keyframes bgAnimation{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/*==========================
+     SCROLLBAR
+==========================*/
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#203a43;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#4facfe;
+
+border-radius:10px;
+
+}
+
+/*==========================
+      LINKS
+==========================*/
+
+a{
+
+text-decoration:none;
+
+color:white;
+
+transition:.3s;
+
+}
+
+a:hover{
+
+color:#9be7ff;
+
+}
+
+/*==========================
+      CONTAINER
+==========================*/
+
+.container{
+
+width:92%;
+
+max-width:1400px;
+
+margin:auto;
+
+padding:30px;
+
+}
+
+/*==========================
+      TOP NAVBAR
+==========================*/
+
+.top-navbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:18px 35px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid rgba(255,255,255,.15);
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+}
+
+.brand{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.brand i{
+
+font-size:34px;
+
+color:#00d4ff;
+
+}
+
+.brand h2{
+
+font-size:26px;
+
+font-weight:600;
+
+}
+
+.nav-right{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+font-size:15px;
+
+}
+
+.notification{
+
+font-size:22px;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+.notification:hover{
+
+transform:rotate(15deg);
+
+color:#00d4ff;
+
+}
+
+/*==========================
+      SIDEBAR
+==========================*/
+
+.sidebar{
+
+position:fixed;
+
+left:0;
+
+top:0;
+
+width:250px;
+
+height:100vh;
+
+background:rgba(0,0,0,.28);
+
+backdrop-filter:blur(18px);
+
+padding-top:25px;
+
+box-shadow:4px 0 20px rgba(0,0,0,.3);
+
+z-index:1000;
+
+}
+
+.logo{
+
+text-align:center;
+
+margin-bottom:40px;
+
+}
+
+.logo i{
+
+font-size:60px;
+
+color:#00d4ff;
+
+margin-bottom:12px;
+
+}
+
+.logo h2{
+
+font-size:24px;
+
+letter-spacing:1px;
+
+}
+
+.sidebar ul{
+
+list-style:none;
+
+}
+
+.sidebar ul li{
+
+margin:12px 0;
+
+}
+
+.sidebar ul li a{
+
+display:block;
+
+padding:16px 28px;
+
+font-size:17px;
+
+color:white;
+
+transition:.35s;
+
+}
+
+.sidebar ul li a:hover{
+
+background:#0d6efd;
+
+padding-left:40px;
+
+border-radius:0 30px 30px 0;
+
+}
+
+.sidebar ul li i{
+
+margin-right:12px;
+
+}
+
+/*==========================
+      LOGIN PAGE
+==========================*/
+
+.login-box{
+
+width:430px;
+
+margin:70px auto;
+
+padding:40px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(22px);
+
+border-radius:25px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+animation:fadeUp .8s;
+
+}
+
+.login-box h1{
+
+text-align:center;
+
+font-size:34px;
+
+margin-bottom:8px;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+margin-bottom:25px;
+
+opacity:.9;
+
+}
+
+/*==========================
+      INPUT BOX
+==========================*/
+
+.input-box{
+
+position:relative;
+
+margin-bottom:20px;
+
+}
+
+.input-box i{
+
+position:absolute;
+
+left:16px;
+
+top:17px;
+
+color:#007BFF;
+
+font-size:18px;
+
+}
+
+.input-box input,
+
+.input-box select{
+
+width:100%;
+
+padding:14px 14px 14px 45px;
+
+border:none;
+
+outline:none;
+
+border-radius:12px;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+.input-box input:focus,
+
+.input-box select:focus{
+
+box-shadow:0 0 15px #00d4ff;
+
+}
+
+/*==========================
+      BUTTON
+==========================*/
+
+button{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+background:linear-gradient(90deg,#0061ff,#60efff);
+
+color:white;
+
+transition:.35s;
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 12px 25px rgba(0,0,0,.3);
+
+}
+
+/*==========================
+      FADE ANIMATION
+==========================*/
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+/*==================================================
+            PREMIUM DASHBOARD
+===================================================*/
+
+/*==========================
+        DASHBOARD
+==========================*/
+
+.dashboard{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin:35px 0;
+
+}
+
+/*==========================
+        DASHBOARD CARD
+==========================*/
+
+.box{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(18px);
+
+border-radius:20px;
+
+padding:30px;
+
+text-align:center;
+
+transition:.4s;
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+.box::before{
+
+content:"";
+
+position:absolute;
+
+top:-100%;
+
+left:-100%;
+
+width:200%;
+
+height:200%;
+
+background:rgba(255,255,255,.08);
+
+transform:rotate(35deg);
+
+transition:.6s;
+
+}
+
+.box:hover::before{
+
+top:100%;
+
+left:100%;
+
+}
+
+.box:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 18px 35px rgba(0,0,0,.35);
+
+}
+
+.box i{
+
+font-size:45px;
+
+margin-bottom:15px;
+
+color:#00d4ff;
+
+}
+
+.box h2{
+
+font-size:34px;
+
+margin:10px 0;
+
+}
+
+.box p{
+
+font-size:17px;
+
+opacity:.9;
+
+}
+
+/*==========================
+          CARD
+==========================*/
+
+.card{
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(20px);
+
+border-radius:20px;
+
+padding:30px;
+
+margin-top:30px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+animation:fadeUp .8s;
+
+transition:.4s;
+
+}
+
+.card:hover{
+
+transform:translateY(-4px);
+
+}
+
+.card h2{
+
+margin-bottom:25px;
+
+font-size:24px;
+
+}
+
+.card h2 i{
+
+margin-right:10px;
+
+color:#00d4ff;
+
+}
+
+/*==========================
+         SEARCH BAR
+==========================*/
+
+.search{
+
+position:relative;
+
+margin-bottom:30px;
+
+}
+
+.search input{
+
+width:100%;
+
+padding:15px 20px 15px 50px;
+
+border:none;
+
+outline:none;
+
+border-radius:15px;
+
+font-size:16px;
+
+}
+
+.search i{
+
+position:absolute;
+
+top:16px;
+
+left:18px;
+
+font-size:18px;
+
+color:#007BFF;
+
+}
+
+/*==========================
+        FORM
+==========================*/
+
+form{
+
+margin-top:20px;
+
+}
+
+input,
+
+select,
+
+textarea{
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:18px;
+
+border:none;
+
+outline:none;
+
+border-radius:12px;
+
+font-size:15px;
+
+transition:.3s;
+
+}
+
+input:focus,
+
+select:focus,
+
+textarea:focus{
+
+box-shadow:0 0 15px #00d4ff;
+
+transform:scale(1.01);
+
+}
+
+textarea{
+
+resize:none;
+
+height:120px;
+
+}
+
+/*==========================
+         BUTTONS
+==========================*/
+
+.btn{
+
+display:inline-block;
+
+padding:13px 22px;
+
+border-radius:10px;
+
+background:#007BFF;
+
+color:white;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+background:#0056d6;
+
+}
+
+.delete{
+
+background:#dc3545;
+
+}
+
+.delete:hover{
+
+background:#bb2d3b;
+
+}
+
+.edit{
+
+background:#198754;
+
+}
+
+.edit:hover{
+
+background:#157347;
+
+}
+
+/*==========================
+          TABLE
+==========================*/
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin-top:20px;
+
+overflow:hidden;
+
+border-radius:15px;
+
+}
+
+th{
+
+background:#007BFF;
+
+color:white;
+
+padding:16px;
+
+font-size:16px;
+
+}
+
+td{
+
+background:white;
+
+padding:15px;
+
+text-align:center;
+
+color:#333;
+
+font-size:15px;
+
+}
+
+tr:nth-child(even){
+
+background:#f1f7ff;
+
+}
+
+tr:hover td{
+
+background:#d8ecff;
+
+transition:.3s;
+
+}
+
+td a{
+
+color:#007BFF;
+
+font-weight:600;
+
+}
+
+td a:hover{
+
+color:#004bb3;
+
+}
+
+/*==========================
+        LOGOUT
+==========================*/
+
+.logout{
+
+float:right;
+
+background:#ff4b5c;
+
+padding:12px 20px;
+
+border-radius:10px;
+
+color:white;
+
+transition:.3s;
+
+}
+
+.logout:hover{
+
+background:#d90429;
+
+}
+
+/*==========================
+       STATUS BADGE
+==========================*/
+
+.badge{
+
+padding:6px 14px;
+
+border-radius:20px;
+
+font-size:13px;
+
+font-weight:600;
+
+}
+
+.success{
+
+background:#198754;
+
+color:white;
+
+}
+
+.pending{
+
+background:#ffc107;
+
+color:#222;
+
+}
+
+.failed{
+
+background:#dc3545;
+
+color:white;
+
+}
+/*==================================================
+            PREMIUM STYLE.CSS - PART 3
+===================================================*/
+
+/*==========================
+      TOP BAR
+==========================*/
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    padding:20px 25px;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border-radius:18px;
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
+}
+
+.topbar h1{
+    font-size:30px;
+    font-weight:600;
+}
+
+.topbar p{
+    opacity:.85;
+}
+
+.clock{
+    text-align:right;
+}
+
+.clock h2{
+    font-size:28px;
+}
+
+.clock p{
+    font-size:14px;
+}
+
+/*==========================
+      PROFILE
+==========================*/
+
+.profile{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+}
+
+.profile img{
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+border:3px solid white;
+
+}
+
+.profile h4{
+
+margin:0;
+
+}
+
+.profile span{
+
+font-size:13px;
+
+opacity:.8;
+
+}
+
+/*==========================
+      FOOTER
+==========================*/
+
+footer{
+
+margin-top:40px;
+
+padding:20px;
+
+text-align:center;
+
+background:rgba(255,255,255,.10);
+
+border-radius:15px;
+
+backdrop-filter:blur(15px);
+
+font-size:14px;
+
+}
+
+footer p{
+
+opacity:.9;
+
+}
+
+/*==========================
+      FLOATING EFFECT
+==========================*/
+
+.float{
+
+animation:floating 4s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==========================
+      FADE
+==========================*/
+
+.fade{
+
+animation:fade .7s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+/*==========================
+      SIDEBAR ACTIVE
+==========================*/
+
+.sidebar ul li a.active{
+
+background:#007BFF;
+
+border-radius:0 30px 30px 0;
+
+padding-left:40px;
+
+}
+
+/*==========================
+      ICON HOVER
+==========================*/
+
+.fa-solid{
+
+transition:.3s;
+
+}
+
+.fa-solid:hover{
+
+transform:scale(1.15);
+
+}
+
+/*==========================
+      IMAGE
+==========================*/
+
+img{
+
+max-width:100%;
+
+}
+
+/*==========================
+      RESPONSIVE
+==========================*/
+
+@media(max-width:992px){
+
+.container{
+
+width:95%;
+
+padding:20px;
+
+}
+
+.dashboard{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.top-navbar{
+
+flex-direction:column;
+
+gap:15px;
+
+text-align:center;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+table{
+
+display:block;
+
+overflow-x:auto;
+
+}
+
+.login-box{
+
+width:95%;
+
+margin:30px auto;
+
+padding:25px;
+
+}
+
+.sidebar{
+
+position:relative;
+
+width:100%;
+
+height:auto;
+
+}
+
+.container{
+
+margin-left:0;
+
+}
+
+.topbar{
+
+flex-direction:column;
+
+text-align:center;
+
+gap:15px;
+
+}
+
+}
+
+@media(max-width:500px){
+
+h1{
+
+font-size:26px;
+
+}
+
+.box h2{
+
+font-size:28px;
+
+}
+
+button{
+
+font-size:15px;
+
+}
+
+}
+
+/*==========================
+      END
+==========================*/
